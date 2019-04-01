@@ -11,3 +11,22 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+.logo {
+  color: white;
+  font-size: 32px,
+}
+
+.logo:hover {
+  color: #FFC65A;
+}
+
+.navbar-nav li a {
+  text-decoration: none;
+  color: white;
+  margin-right: 20px;
+}
+
+.navbar-nav li a:hover{
+   color: #FFC65A;
+}
