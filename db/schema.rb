@@ -10,9 +10,44 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+ActiveRecord::Schema.define(version: 2019_04_01_055706) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "bookings", force: :cascade do |t|
+    t.integer "customer_id"
+    t.bigint "tour_id"
+    t.integer "headcount"
+    t.datetime "date"
+    t.boolean "confirmed"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["customer_id"], name: "index_bookings_on_customer_id"
+    t.index ["tour_id"], name: "index_bookings_on_tour_id"
+  end
+
+  create_table "tours", force: :cascade do |t|
+    t.string "name"
+    t.text "details"
+    t.integer "provider_id"
+    t.string "photo"
+    t.integer "cost"
+    t.string "location"
+    t.float "latitude"
+    t.float "longitude"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["provider_id"], name: "index_tours_on_provider_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "photo"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "bookings", "tours"
 end
