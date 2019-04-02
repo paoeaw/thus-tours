@@ -8,9 +8,10 @@ require 'faker'
 #   Character.create(name: 'Luke', movie: movies.first)
 
 10.times do
+  location = Faker::Address.city
   user = User.new(name: Faker::TvShows::Seinfeld.character, email: Faker::Internet.email, password: '123456')
-  tour = Tour.new(name: "#{Faker::Verb.ing_form} #{Faker::Hipster.word} Tours", details: Faker::TvShows::Seinfeld.quote(2), cost: rand(300), location: Faker::Address.city, provider_id: 1)
-  tour_photo_url = 'https://picsum.photos/200/300/?random'
+  tour = Tour.new(name: "#{Faker::Verb.ing_form} #{Faker::Hipster.word} #{location} Tours", details: Faker::TvShows::Seinfeld.quote, cost: rand(300), location: location, provider_id: 1)
+  tour_photo_url = "http://loremflickr.com/280/280/#{location}"
   tour.remote_photo_url = tour_photo_url
   tour.save
   user_photo_url = 'https://loremflickr.com/320/240'

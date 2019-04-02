@@ -1,0 +1,11 @@
+<h1>Test</h1>
+
+<% if current_user.bookings.empty? %>
+  <p>You don't have any upcoming tours. <%= link_to "Start exploring!", tours_path %> </p>
+<% else %>
+  <% current_user.bookings.each_with_index do |booking, index| %>
+    <%= index + 1 %>
+    <%= "#{booking.tour.name} on #{booking.date}" %> <br>
+    <br>
+  <% end %>
+<% end %>
