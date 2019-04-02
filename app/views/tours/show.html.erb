@@ -28,7 +28,7 @@
       </div>
       <div class="form-group">
         <h5>Total</h5>
-        <h4 class="tour_cost"> ￥<%= @tour.cost %> </h4>
+        <h4 class="tour_cost"> ￥<span class="tour_cost" id="tour_cost"><%= @tour.cost %></span> </h4>
       </div>
         <%= f.submit 'Request', class: "btn btn-info btn-lg btn-block" %>
       <% end %>
