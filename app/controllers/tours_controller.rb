@@ -19,13 +19,13 @@ class ToursController < ApplicationController
     @tour = Tour.find(params[:id])
     authorize @tour
     @tour.update(tour_params)
-    
     redirect_to tour_path(@tour)
   end
 
   def create
     @tour = Tour.new(tour_params)
     authorize @tour
+    @tour.provider = current_user
     if @tour.save
       redirect_to tour_path(@tour)
     else
@@ -51,6 +51,6 @@ class ToursController < ApplicationController
   def tour_params
     ### left it at name and photo for testing purposes
     ### include all params when ready
-    params.require(:tour).permit(:name, :photo)
+    params.require(:tour).permit(:name, :photo, :details, :cost, :location)
   end
 end
