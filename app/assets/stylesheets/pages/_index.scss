@@ -4,26 +4,45 @@
 .banner {
   height: 500px;
   background-size: cover;
+  padding: 50px;
+  h1 {
+    color: white;
+    font-size: 80px;
+  }
+}
+
+.card-container {
+  width: 1200px;
+  margin: 0 auto;
 }
 
 .cards {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 400px auto;
+  // grid-template-rows: 400px auto;
   grid-gap: 16px;
   padding: 20px;
 }
 
-.card {
+.tour-card {
   width: 300px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   img {
-    background-size: cover;
+    object-fit: cover;
     background-position: center;
     width: 300px;
     height: 300px;
   }
   .tour-info {
     padding: 10px;
+  }
+}
+
+.tour-name {
+  color: #1f1f1f;
+  &:hover {
+    text-decoration: none;
+    opacity: 0.7;
   }
 }
 
