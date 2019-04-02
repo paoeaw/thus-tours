@@ -1,4 +1,6 @@
 class ToursController < ApplicationController
+  skip_before_action :authenticate_user!, only: :index
+
   def index
     @tours = policy_scope(Tour).order(created_at: :desc)
   end
@@ -13,6 +15,14 @@ class ToursController < ApplicationController
     authorize @tour
   end
 
+  def update
+    @tour = Tour.find(params[:id])
+    authorize @tour
+    @tour.update(tour_params)
+    
+    redirect_to tour_path(@tour)
+  end
+
   def create
     @tour = Tour.new(tour_params)
     authorize @tour
@@ -21,6 +31,11 @@ class ToursController < ApplicationController
     else
       render :new
     end
+  end
+
+  def edit
+    @tour = Tour.find(params[:id])
+    authorize @tour
   end
 
   def destroy
