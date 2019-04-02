@@ -3,16 +3,19 @@
 </div>
 
 <div class="card-container d-flex">
-  <div class="cards">
-    <% @tours.each do |tour| %>
-      <div class="tour-card">
-        <img src="https://source.unsplash.com/random" alt="">
-        <div class="tour-info">
-          <h5><%= link_to tour.name, tour_path(tour), class: 'tour-name' %></h5>
-          <p><%= tour.details %></p>
+  <div class="all-cards">
+    <h3 class="ml-3 mt-4">Available tours</h3>
+    <div class="cards">
+      <% @tours.each do |tour| %>
+        <div class="tour-card">
+          <%= cl_image_tag tour.photo, crop: :fill %>
+          <div class="tour-info">
+            <h5><%= link_to tour.name.capitalize, tour_path(tour), class: 'tour-name' %></h5>
+            <p><%= tour.details %></p>
+          </div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
   <img id="map" src='https://api.mapbox.com/styles/v1/mapbox/streets-v11/static/2.3381,48.8693,10.45,0,0/600x1000?access_token=pk.eyJ1IjoicGFvZWF3IiwiYSI6ImNqdDlsOTRrbzAxZTYzeXN6OXhvbDJ4ejgifQ.kXen63XvDghWbq-1W21DjA
 '></div>
