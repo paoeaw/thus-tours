@@ -20,11 +20,11 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
-    # authorize @booking
+    authorize @booking
     @booking.tour = Tour.find(params[:tour_id])
     @booking.customer = current_user
     if @booking.save
-      redirect_to tour_path(@booking.tour)
+      redirect_to bookings_path
     else
       render tour_path(@tour)
     end
