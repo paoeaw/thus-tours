@@ -32,7 +32,7 @@ class BookingsController < ApplicationController
   end
 
   def destroy
-    @booking = Booking.find(params[:tour_id])
+    @booking = Booking.find(params[:id])
     authorize @booking
     @booking.destroy
 
