@@ -19,6 +19,8 @@ class ToursController < ApplicationController
     @tour = Tour.find(params[:id])
     authorize @tour
     @tour.update(tour_params)
+    
+    redirect_to tour_path(@tour)
   end
 
   def create
