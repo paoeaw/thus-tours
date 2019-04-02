@@ -3,4 +3,8 @@ class Booking < ApplicationRecord
   belongs_to :tour
   validates :headcount, presence: true, numericality: { only_integer: true }
   validates :date, presence: true
+
+  def nice_date
+    date.strftime("%b %d, %Y") if date
+  end
 end
