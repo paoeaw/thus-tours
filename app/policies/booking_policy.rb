@@ -4,4 +4,16 @@ class BookingPolicy < ApplicationPolicy
       scope.all
     end
   end
+
+  def create?
+    true
+  end
+
+  def update?
+    record.customer == user
+  end
+
+  def destroy?
+    record.customer == user
+  end
 end
