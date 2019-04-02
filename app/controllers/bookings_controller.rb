@@ -20,18 +20,18 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(booking_params)
-    authorize @booking
-    @booking.tour = Tour.find(params[:id])
+    # authorize @booking
+    @booking.tour = Tour.find(params[:tour_id])
     @booking.customer = current_user
     if @booking.save
-      redirect_to bookings_path
+      redirect_to tour_path(@booking.tour)
     else
       render tour_path(@tour)
     end
   end
 
   def destroy
-    @booking = Booking.find(params[:id])
+    @booking = Booking.find(params[:tour_id])
     authorize @booking
     @booking.destroy
 
