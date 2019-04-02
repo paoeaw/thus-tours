@@ -18,9 +18,11 @@
 
   <div class="request d-flex align-item-center justify-content-around flex-column ml-5">
     <div class="form p-5">
-      <%= simple_form_for @tour do |f| %>
+      <%= simple_form_for [@tour, @booking] do |f| %>
+        <%= f.input :headcount %>
+        <%= f.date_field :date %>
         <h6>Total</h6>
-        <h4>¥ <%= @tour.cost %> </h4>
+        <h4> ￥<%= @tour.cost %> </h4>
         <%= f.submit 'request', class: "btn-info rounded px-5 py-1 mt-3" %>
       <% end %>
     </div>
