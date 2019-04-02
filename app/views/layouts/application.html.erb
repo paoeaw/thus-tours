@@ -14,9 +14,8 @@
       <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
         <%= link_to raw('<i class="fab fa-ravelry"></i>'), tours_path, class: "logo"%>
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0 pl-3">
-          <li><a href="#"> Sign Up</a></li>
-          <li><a href="#"> Sign In</a></li>
-
+          <li><%= link_to "Log in", new_user_session_path %></li>
+          <li><%= link_to "Log out", destroy_user_session_path, method: :delete %><li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
           <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
@@ -34,3 +33,4 @@
     <%= javascript_pack_tag 'application' %>
   </body>
 </html>
+<%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
