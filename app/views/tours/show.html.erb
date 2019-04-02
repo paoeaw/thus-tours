@@ -3,11 +3,11 @@
 
 <div class="container d-flex my-5">
   <div class="tour-description">
-    <h3>Tour name</h3>
+    <h3> <%= JSON.parse(@tour.name).join(" ") %> </h3>
     <h6>category</h6>
-    <h3>¥5000</h3>
+    <h3> ¥ <%= @tour.cost %></h3>
     <p>
-      At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.
+      <%= @tour.details %>
     </p>
     <div class="tour-photo d-flex justify-content-between">
       <img src="https://source.unsplash.com/random" alt="">
@@ -18,9 +18,11 @@
 
   <div class="request d-flex align-item-center justify-content-around flex-column ml-5">
     <div class="form p-5">
-      <%= simple_form_for @tour do |f| %>
+      <%= simple_form_for [@tour, @booking] do |f| %>
+        <%= f.input :headcount %>
+        <%= f.date_field :date %>
         <h6>Total</h6>
-        <h4>¥10000</h4>
+        <h4> ￥<%= @tour.cost %> </h4>
         <%= f.submit 'request', class: "btn-info rounded px-5 py-1 mt-3" %>
       <% end %>
     </div>
