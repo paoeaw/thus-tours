@@ -1,4 +1,7 @@
-<h1>Test</h1>
+
+
+<div class="wrapper">
+  <h2>Your Booking</h2>
 
 <% if current_user.bookings.empty? %>
   <p>You don't have any upcoming tours. <%= link_to "Start exploring!", tours_path %> </p>
@@ -9,3 +12,6 @@
     <br>
   <% end %>
 <% end %>
+
+
+</div>

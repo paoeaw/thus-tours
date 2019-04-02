@@ -1,13 +1,21 @@
 .request {
   border-radius: 4px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  height: 450px;
+  height: 370px;
+  .tour_cost {
+    text-align: center;
+    color: red;
+    font-weight: bold;
+    font-size: 28px;
+    padding:8px 16px;
+    }
 }
 
 .tour-photo {
   img {
     width: 250px;
     height: 180px;
+    object-fit: cover;
     background-position: center;
   }
 }
