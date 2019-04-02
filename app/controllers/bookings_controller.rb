@@ -27,7 +27,7 @@ class BookingsController < ApplicationController
     if @booking.save
       redirect_to bookings_path
     else
-      render template: 'tours/show'
+      render template: 'tours/show', alert: 'Invalid information.'
     end
   end
 

@@ -7,6 +7,8 @@ class Tour < ApplicationRecord
   validates :name, presence: true, uniqueness: true
   validates :details, presence: true
   validates :photo, presence: true
-  validates :cost, presence: true, numericality: { only_integer: true }
+  validates :cost, presence: true,
+                   numericality: { only_integer: true,
+                                   greater_than_or_equal_to: 1 }
   validates :location, presence: true
 end
