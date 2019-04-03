@@ -2,15 +2,7 @@ class ToursController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
 
   def index
-    @tours = policy_scope(Tour).order(created_at: :desc).where.not(latitude: nil, longitude: nil)
-
-    @markers = @tours.map do |tour|
-      {
-        lat: tour.latitude,
-        lng: tour.longitude,
-        infoWindow: render_to_string(partial: "infowindow", locals: { tour: tour })
-      }
-    end
+    @tours = policy_scope(Tour).order(created_at: :desc)
   end
 
   def show
@@ -22,6 +14,9 @@ class ToursController < ApplicationController
   def new
     @tour = Tour.new
     authorize @tour
+  end
+
+  def edit
   end
 
   def update
