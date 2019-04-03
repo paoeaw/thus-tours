@@ -10,7 +10,7 @@ class BookingPolicy < ApplicationPolicy
   end
 
   def update?
-    record.customer == user
+    record.tour.provider == user
   end
 
   def destroy?
