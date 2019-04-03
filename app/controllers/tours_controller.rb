@@ -24,6 +24,9 @@ class ToursController < ApplicationController
     authorize @tour
   end
 
+  def edit
+  end
+
   def update
     @tour = Tour.find(params[:id])
     authorize @tour

@@ -1,0 +1,30 @@
+<%= simple_form_for(tour) do |f| %>
+  <% if tour.errors.any? %>
+    <div class="errors-container">
+      <ul>
+        <% tour.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="form-group">
+    <%= f.input :name, :placeholder => 'Kyoto Green', class: 'form-control'%>
+  </div>
+  <div class="form-group">
+    <%= f.input :details, :placeholder => 'Write something nice to sale your tour', class: 'form-control'%>
+  </div>
+  <div class="form-group">
+    <%= f.input :cost, :placeholder => '2500', class: 'form-control'%>
+  </div>
+  <div class="form-group">
+    <%= f.input :location, :placeholder => '1234, Gojo Dori, Kyoto, 23098', class: 'form-control'%>
+  </div>
+  <div class="form-group">
+    <%= f.input :photo %>
+    <%= f.input :photo_cache, as: :hidden %>
+  </div>
+  <%= f.submit class: 'btn btn-info' %>
+  <%= f.button :button, 'Cancel', type: :reset, class: 'btn btn-outline-info' %>
+
+<% end %>

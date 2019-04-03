@@ -13,6 +13,10 @@ class TourPolicy < ApplicationPolicy
     true
   end
 
+  def edit?
+    user.tours.any?
+  end
+
   def update?
     record.provider == user
   end
