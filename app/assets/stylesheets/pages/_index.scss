@@ -1,13 +1,22 @@
 // Import page-specific CSS files here.
 @import "home";
 
+html {
+  scroll-behavior: smooth;
+}
+
 .banner {
-  height: 500px;
+  height: 100vh;
   background-size: cover;
   padding: 50px;
   h1 {
     color: white;
     font-size: 80px;
+    text-align: center;
+  }
+  a {
+    color: white;
+    font-size: 60px;
   }
 }
 
