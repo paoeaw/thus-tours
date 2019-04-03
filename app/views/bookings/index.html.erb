@@ -1,64 +1,52 @@
 
 <br/>
 <div class="wrapper mt-5 col-md-9 offset-md-2">
-  <br>
-  <h2>Your Tours</h2>
+  <div class="waiting_booking mt-3">
+    <h2 class="waiting_title mt-3">Pending Bookings</h2>
+    <% if current_user.bookings.empty? %>
+    <p>You don't have any upcoming tours. <%= link_to "Start exploring!", tours_path, class: 'btn btn-info' %></p>
+    <% else %>
+    <ul class='list-group booking_list unconfirmed-bookings'>
+      <% current_user.bookings.where(confirmed: nil).each_with_index do |booking, index| %>
+      <li class="my-4 border-bottom pb-3">
+        <h3 class="pb-2"><%= index + 1 %> <span style="font-size: 18px;"><i class="fas fa-plane"></i></span> <%= booking.tour.name%></h3>
+        <div>
+          <strong>Date: </strong><%= booking.nice_date %> - <strong>People:</strong> <%= booking.headcount %> - <strong>Price: ￥</strong> <%= booking.tour.cost %> - <strong>Total: ￥</strong> <%= booking.tour.cost * booking.headcount %> <br>
+        </div>
+        <div class="content_booking d-flex justify-content-between mt-3">
+          <%= cl_image_tag booking.tour.photo %>
+          <p class='ml-3'><%= booking.tour.details%></p>
+        </div>
+        <%= link_to raw('Cancel  <i class="fas fa-trash-alt"></i>'),  booking_path(booking), method: "delete", class: "btn btn-outline-dark mt-3", data: { confirm: "Are you sure you want to cancel your request for '#{booking.tour.name}'?" }%>
+      </li>
+      <% end %>
+    </ul>
+  </div>
 
-<% if current_user.bookings.empty? %>
-  <p>You don't have any upcoming tours. <%= link_to "Start exploring!", tours_path, class: 'btn btn-info' %> </p>
-<% else %>
-  <ul class='list-group booking_list unconfirmed-bookings'>
-    <% current_user.bookings.where(confirmed: nil).each_with_index do |booking, index| %>
-    <% #raise %>
-    <li clas="mt-4">
-      <br>
-      <br>
-      <h3 class="border-bottom pb-3"><%= index + 1 %> <span style="font-size: 18px;"><i class="fas fa-mountain"></i></span> <%= booking.tour.name%></h3>
-      <div>
-         <strong>Date: </strong><%= booking.nice_date %> - <strong>People:</strong> <%= booking.headcount %> - <strong>Price: ￥</strong> <%= booking.tour.cost %> - <strong>Total: ￥</strong> <%= booking.tour.cost * booking.headcount %> <br>
-      </div>
-      <div class="d-flex justify-content-between mt-3">
-        <%= cl_image_tag booking.tour.photo%>
-        <p class='ml-3'><%= booking.tour.details%></p>
-      </div>
-      <br>
-      <%= link_to 'Cancel request', booking_path(booking), method: "delete", class: "btn btn-danger", data: { confirm: "Are you sure you want to cancel your request for '#{booking.tour.name}'?" }%>
-
-    </li>
-  <% end %>
-  </ul>
 
   <!-- This is a list of a user's confirmed/upcoming tours -->
-  <h2>Upcoming Tours</h2>
-  <% if current_user.bookings.where(confirmed: true).any? %>
-    <ul class='list-group booking_list confirmed-bookings'>
+  <div class="confirmed_booking mt-3">
+    <h2 class="confirmed_title">Confirmed Bookings</h2>
+    <% if current_user.bookings.where(confirmed: true).any? %>
+    <ul class='list-group confirmed_list confirmed-bookings'>
       <% current_user.bookings.where(confirmed: true).each_with_index do |booking, index| %>
-      <% #raise %>
-        <li clas="mt-4">
-          <br>
-          <br>
-          <h3 class="border-bottom pb-3"><%= index + 1 %> <span style="font-size: 18px;"><i class="fas fa-mountain"></i></span> <%= booking.tour.name%></h3>
+        <li class="my-4 border-bottom pb-3">
+          <h3 class="confirmed border-bottom pb-3"><%= index + 1 %> <span style="font-size: 18px;"><i class="fas fa-plane-departure"></i></span> <%= booking.tour.name%></h3>
           <div>
              <strong>Date: </strong><%= booking.nice_date %> - <strong>People:</strong> <%= booking.headcount %> - <strong>Price: ￥</strong> <%= booking.tour.cost %> - <strong>Total: ￥</strong> <%= booking.tour.cost * booking.headcount %> <br>
           </div>
-          <div class="d-flex justify-content-between mt-3">
+          <div class="content_confirmed d-flex justify-content-between mt-3">
             <%= cl_image_tag booking.tour.photo%>
             <p class='ml-3'><%= booking.tour.details%></p>
           </div>
-          <br>
-          <%= link_to 'Cancel request', booking_path(booking), method: "delete", class: "btn btn-danger", data: { confirm: "Are you sure you want to cancel your request for '#{booking.tour.name}'?" }%>
-
+          <%= link_to raw('Cancel  <i class="fas fa-trash-alt"></i>'), booking_path(booking), method: "delete", class: "btn btn-outline-dark mt-3", data: { confirm: "Are you sure you want to cancel your request for '#{booking.tour.name}'?" }%>
         </li>
-      <% end %>
+        <% end %>
     </ul>
-  <% else %>
+    <% else %>
     <p>Please wait for a tour provider to approve your requests. 📨 </p>
+    <% end %>
   <% end %>
-  <br>
-  <br>
-  <br>
-<% end %>
-
-
+  </div>
 </div>
 
