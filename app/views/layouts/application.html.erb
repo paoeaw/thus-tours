@@ -28,11 +28,11 @@
             <% if var.tours.any? %>
               <div class="dropdown">
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Manage tours
+                  Tour manager
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                  <a class="dropdown-item" href="#">Your tours</a>
-                  <a class="dropdown-item" href="#">Booking requests</a>
+                  <%= link_to "Your tours", providers_tours_path, class: "dropdown-item" %>
+                  <%= link_to "Booking requests", providers_bookings_path, class: "dropdown-item" %>
                 </div>
               </div>
             <% end %>
