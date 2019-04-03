@@ -16,10 +16,7 @@
           <br>
           <h3> Unconfirmed </h3>
         <% end %>
-        <%= simple_form_for booking do |f| %>
-          <%= f.input :confirmed, collection: [true] %>
-          <%= f.submit  %>
-        <% end %>
+        <%= link_to "confirm", providers_booking_path(booking), method: :patch %>
       <% end %>
     <% end %>
   <% end %>

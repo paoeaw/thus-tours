@@ -6,8 +6,7 @@ class Providers::BookingsController < ApplicationController
   def update
     @booking = Booking.find(params[:id])
     authorize @booking
-
-    @booking.update(booking_params)
+    @booking.confirmed = true
     @booking.save
 
     redirect_to providers_bookings_path
