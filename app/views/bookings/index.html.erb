@@ -11,7 +11,7 @@
     <li clas="mt-4">
       <h3 class="border-bottom pb-3"><%= index + 1 %> <span style="font-size: 18px;"><i class="fas fa-mountain"></i></span> <%= booking.tour.name%></h3>
       <div>
-         <strong>Date: </strong><%= booking.nice_date %> - <strong>People:</strong> <%= booking.headcount %> - <strong>Price: ￥</strong> <%= booking.tour.cost %> - <strong>Total:</strong>
+         <strong>Date: </strong><%= booking.nice_date %> - <strong>People:</strong> <%= booking.headcount %> - <strong>Price: ￥</strong> <%= booking.tour.cost * booking.headcount %> - <strong>Total:</strong>
          <%= link_to raw('<i class="fas fa-trash-alt"></i>'), booking_path(booking), method: "delete", data: { confirm: "Are you sure you want to cancel this tour?" }%>
       </div>
       <div class="d-flex justify-content-between mt-3">
