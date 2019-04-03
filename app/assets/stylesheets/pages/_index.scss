@@ -40,18 +40,19 @@ html {
     object-fit: cover;
     background-position: center;
     width: 300px;
-    height: 300px;
+    height: 150px;
   }
   .tour-info {
     padding: 10px;
   }
 }
 
-.tour-name {
+.tour-link {
   color: #1f1f1f;
   &:hover {
     text-decoration: none;
-    opacity: 0.7;
+    color: #1f1f1f;
+    background-color: #ffc659;
   }
 }
 
