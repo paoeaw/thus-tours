@@ -16,6 +16,11 @@
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0 pl-3">
           <li><%= link_to "Log in", new_user_session_path %></li>
           <li><%= link_to "Log out", destroy_user_session_path, method: :delete %><li>
+           <% if user_signed_in? %>
+            <li>
+              <%= link_to "Your tours", bookings_path, class: 'btn btn-info text-dark' %>
+            </li>
+           <% end %>
         </ul>
         <form class="form-inline my-2 my-lg-0">
           <% if current_user %>
