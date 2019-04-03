@@ -1,4 +1,4 @@
-<div class="tour-banner" style="background-image: url('https://source.unsplash.com/random');">
+<div class="tour-banner" style="background-image: url(<%= cl_image_path @tour.photo %>);">
 </div>
 
 <div class="container d-flex my-5">
@@ -9,9 +9,9 @@
       <%= @tour.details %>
     </p>
     <div class="tour-photo d-flex justify-content-between">
-      <img src="https://source.unsplash.com/random" alt="">
-      <img src="https://source.unsplash.com/random" alt="">
-      <img src="https://source.unsplash.com/random" alt="">
+      <%= cl_image_tag @tour.photo_one %>
+      <%= cl_image_tag @tour.photo_two %>
+      <%= cl_image_tag @tour.photo_three %>
     </div>
   </div>
 

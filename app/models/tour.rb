@@ -4,6 +4,9 @@ class Tour < ApplicationRecord
   has_many :bookings
 
   mount_uploader :photo, PhotoUploader
+  mount_uploader :photo_one, PhotoUploader
+  mount_uploader :photo_two, PhotoUploader
+  mount_uploader :photo_three, PhotoUploader
   validates :name, presence: true, uniqueness: true
   validates :details, presence: true
   validates :photo, presence: true
