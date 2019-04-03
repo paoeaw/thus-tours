@@ -8,3 +8,27 @@
     }
   }
 }
+.content_booking, .content_confirmed {
+  img {
+    object-fit: cover;
+    background-position: center;
+    width: 300px;
+    height: 200px;
+  }
+}
+
+.waiting_title {
+  color:  #5A6268;
+  font-weight: bold;
+}
+
+.confirmed_title {
+  color:  #343A40;
+  font-weight: bold;
+}
+
+.confirmed_list {
+  list-style: none;
+  li h3 {
+  color: #FD7E14;
+}}
