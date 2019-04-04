@@ -17,7 +17,11 @@
           <ul class='list-group booking_list unconfirmed-bookings'>
             <% current_user.bookings.where(confirmed: nil).each_with_index do |booking, index| %>
             <li class="mb-4 border-bottom pb-3">
-            <h3 class="pb-2"><%= index + 1 %> <span style="font-size: 18px;"><i class="fas fa-plane"></i></span> <%= booking.tour.name%></h3>
+            <%= link_to tour_path(booking.tour), class: "bookedtour", :action => 'go' do %>
+              <h3 class="pb-2">
+                <%= index + 1 %> <span style="font-size: 18px;"><i class="fas fa-plane"></i></span> <%= booking.tour.name%>
+              </h3>
+            <% end %>
               <div>
                 <strong>Date: </strong><%= booking.nice_date %> | <strong>People:</strong> <%= booking.headcount %> | <strong>Price: ￥</strong> <%= booking.tour.cost %> | <strong>Total: ￥</strong> <%= booking.tour.cost * booking.headcount %>&nbsp;&nbsp;&nbsp;<%= link_to raw('<i class="fas fa-trash-alt"></i>'),  booking_path(booking), method: "delete", class: "text-dark", data: { confirm: "Are you sure you want to cancel your request for '#{booking.tour.name}'?" }%> <br>
               </div>
@@ -37,7 +41,11 @@
     <ul class='list-group confirmed_list confirmed-bookings'>
       <% current_user.bookings.where(confirmed: true).each_with_index do |booking, index| %>
         <li class="mb-4 border-bottom pb-3">
-          <h3 class="pb-2"><%= index + 1 %> <span style="font-size: 18px;"><i class="fas fa-plane-departure"></i></span> <%= booking.tour.name%></h3>
+        <%= link_to tour_path(booking.tour), class: "confirmedtour", :action => 'go' do %>
+          <h3 class="pb-2">
+            <%= index + 1 %> <span style="font-size: 18px;"><i class="fas fa-plane-departure"></i></span> <%= booking.tour.name%>
+          </h3>
+        <% end %>
           <div>
              <strong>Date: </strong><%= booking.nice_date %> | <strong>People:</strong> <%= booking.headcount %> | <strong>Price: ￥</strong> <%= booking.tour.cost %> | <strong>Total: ￥</strong> <%= booking.tour.cost * booking.headcount %>&nbsp;&nbsp;&nbsp;<%= link_to raw('<i class="fas fa-trash-alt"></i>'),  booking_path(booking), method: "delete", class: "text-dark", data: { confirm: "Are you sure you want to cancel your request for '#{booking.tour.name}'?" }%> <br>
           </div>
