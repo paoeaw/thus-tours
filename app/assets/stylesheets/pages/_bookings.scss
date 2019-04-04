@@ -27,7 +27,7 @@
   margin-top: 100px;
 }
 
-.confirmed, .confirmed_title, .waiting_title, .waiting {
+.confirmed, .confirmed_title, .waiting_title, .waiting, .bookedtour h3, .confirmedtour h3 {
   font-family: 'Heebo', sans-serif;
   letter-spacing: 0.5px;
 }
@@ -44,4 +44,22 @@ color: #5A6268;
 background-color: #343A40;
 font-size: 20px;
 font-weight: 600;
+}
+
+.bookedtour {
+  &:hover {
+    text-decoration: none;
+    h3 {
+      color: #0c727f;
+    }
+  }
+}
+
+.confirmedtour {
+  &:hover {
+    text-decoration: none;
+    h3 {
+      color: #b75a0e;
+    }
+  }
 }
