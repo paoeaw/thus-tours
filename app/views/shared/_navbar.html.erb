@@ -7,9 +7,14 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <div class="mr-4">
-      <form class="form-inline my-lg-0">
-        <input id="nav-search" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      </form>
+      <% #raise %>
+      <%= form_for Tour.new, url: tours_path(anchor: 'tours'), method: :get do %>
+        <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "Start exploring"
+        %>
+      <% end %>
     </div>
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>

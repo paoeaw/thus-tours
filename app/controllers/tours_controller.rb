@@ -2,7 +2,12 @@ class ToursController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
 
   def index
-    @tours = policy_scope(Tour).order(created_at: :desc).where.not(latitude: nil, longitude: nil)
+    if params[:query].present?
+      tours = policy_scope(Tour).order(created_at: :desc).where.not(latitude: nil, longitude: nil)
+      @tours = tours.where("name ILIKE ?", "%#{params[:query]}%")
+    else
+      @tours = policy_scope(Tour).order(created_at: :desc).where.not(latitude: nil, longitude: nil)
+    end
 
     @markers = @tours.map do |tour|
       {
