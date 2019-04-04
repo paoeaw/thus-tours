@@ -13,6 +13,7 @@
 @import "pages/index";
 @import "pages/show";
 @import "pages/bookings";
+@import "pages/providers_bookings";
 @import "pages/toursnew";
 
 @import url('https://fonts.googleapis.com/css?family=Heebo:300,400,500,700');
@@ -24,10 +25,11 @@ body {
 
 .logo {
   color: white;
-  font-size: 32px,
+  font-size: 28px,
 }
 
 .logo:hover {
+  text-decoration: none;
   color: #FFC65A;
 }
 
@@ -45,10 +47,14 @@ body {
   margin-left: 16px;
 }
 
+.dropdown-menu .dropdown-item {
+  color: #BFBFBF;
+
 .devise-form {
   margin-top: 100px;
   h2 {
     font-family: 'Heebo', sans-serif;
     letter-spacing: 0.5px;
   }
+
 }
