@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
+  get 'users/show'
   devise_for :users
   root to: 'tours#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.htm
+  resources :users, only: [:show]
 
   resources :tours, only: [:index, :show, :destroy, :new, :create, :update] do
     resources :bookings, only: [:create]
