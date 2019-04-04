@@ -51,6 +51,7 @@ html {
 
 .tour-card {
   width: 300px;
+  height: 100%;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   img {
     object-fit: cover;
@@ -68,7 +69,9 @@ html {
   &:hover {
     text-decoration: none;
     color: #1f1f1f;
-    background-color: #ffc659;
+    .tour-card {
+      background-color: #ffc659;
+    }
   }
   h5 {
     font-family: 'Heebo', sans-serif;
