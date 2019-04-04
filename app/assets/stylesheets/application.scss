@@ -15,6 +15,12 @@
 @import "pages/bookings";
 @import "pages/toursnew";
 
+@import url('https://fonts.googleapis.com/css?family=Heebo:300,400,500,700');
+
+body {
+  font-family: 'Heebo', sans-serif;
+  letter-spacing: 0.5px;
+}
 
 .logo {
   color: white;
@@ -37,4 +43,11 @@
 
 #nav-search {
   margin-left: 16px;
+}
+
+.devise-form {
+  h2 {
+    font-family: 'Heebo', sans-serif;
+    letter-spacing: 0.5px;
+  }
 }

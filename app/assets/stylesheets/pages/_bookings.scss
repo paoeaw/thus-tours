@@ -1,7 +1,7 @@
 
 .booking_list {
   list-style: none;
-  margin-top: 20px;
+  margin-top: 10px;
   li {
     h3 {
       color: #15AABF;
@@ -19,12 +19,12 @@
 
 .waiting_title {
   color:  #5A6268;
-  font-weight: bold;
+  font-weight: 700;
 }
 
 .confirmed_title {
   color:  #343A40;
-  font-weight: bold;
+  font-weight: 700;
 }
 
 .confirmed_list {
@@ -35,4 +35,9 @@
 
 .wrapper {
   margin-top: 100px;
+}
+
+.confirmed, .confirmed_title, .waiting_title, .waiting {
+  font-family: 'Heebo', sans-serif;
+  letter-spacing: 0.5px;
 }

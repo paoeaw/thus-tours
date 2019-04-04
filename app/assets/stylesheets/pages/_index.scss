@@ -13,6 +13,8 @@ html {
     color: white;
     font-size: 80px;
     text-align: center;
+    font-family: 'Heebo', sans-serif;
+    letter-spacing: 0.5px;
   }
   a {
     color: white;
@@ -23,6 +25,10 @@ html {
 .card-container {
   width: 1200px;
   margin: 0 auto;
+  h3 {
+    font-family: 'Heebo', sans-serif;
+    letter-spacing: 0.5px;
+  }
 }
 
 .cards {
@@ -53,6 +59,14 @@ html {
     text-decoration: none;
     color: #1f1f1f;
     background-color: #ffc659;
+  }
+  h5 {
+    font-family: 'Heebo', sans-serif;
+    letter-spacing: 0.5px;
+  }
+  p {
+    font-weight: 300;
+    letter-spacing: 0.5px;
   }
 }
 
