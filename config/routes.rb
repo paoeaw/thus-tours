@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   namespace :providers do
     resources :bookings, only: [:index, :update, :destroy]
-    resources :tours, only: [:index, :edit]
+    resources :tours, only: [:index, :edit, :destroy]
   end
 
 end
