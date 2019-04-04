@@ -24,6 +24,9 @@ class ToursController < ApplicationController
     authorize @tour
   end
 
+  def edit
+  end
+
   def update
     @tour = Tour.find(params[:id])
     authorize @tour
@@ -60,6 +63,8 @@ class ToursController < ApplicationController
   def tour_params
     ### left it at name and photo for testing purposes
     ### include all params when ready
-    params.require(:tour).permit(:name, :photo, :details, :cost, :location)
+    params.require(:tour).permit(:name, :photo, :photo_one,
+                                 :photo_two, :photo_three,
+                                 :details, :cost, :location)
   end
 end

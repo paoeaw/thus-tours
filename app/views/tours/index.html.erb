@@ -5,16 +5,18 @@
 
 <div class="card-container d-flex" id="tours">
   <div class="all-cards">
-    <h3 class="ml-3 mt-4">Available tours</h3>
+    <h3 class="ml-4 mt-5 pt-4">Available tours</h3>
     <div class="cards">
       <% @tours.each do |tour| %>
-        <div class="tour-card">
-          <%= cl_image_tag tour.photo, crop: :fill %>
-          <div class="tour-info">
-            <h5><%= link_to tour.name, tour_path(tour), class: 'tour-name' %></h5>
-            <p><%= tour.details.first(120) %>...</p>
+        <%= link_to tour_path(tour), class: "tour-link", :action => 'go' do %>
+          <div class="tour-card">
+            <%= cl_image_tag tour.photo, crop: :fill %>
+            <div class="tour-info">
+              <h5 class="mb-0"><%= tour.name %></h5>
+              <p><%= tour.details.first(120) %>...</p>
+            </div>
           </div>
-        </div>
+        <% end %>
       <% end %>
     </div>
   </div>
