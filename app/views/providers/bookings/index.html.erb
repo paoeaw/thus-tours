@@ -19,7 +19,7 @@
           <% else %>
             <div class="notification-actions">
             <%= link_to raw('Confirm <i class="fas fa-check"></i>'), providers_booking_path(booking), class: "text-dark btn btn-outline-info", method: :patch %>
-            <%= link_to raw('Cancel <i class="far fa-trash-alt"></i>'),providers_bookings_path, method: "delete",  data: { confirm: "Are you sure you want to cancel your request for '#{booking.tour.name}'?" } %>
+            <%= link_to raw('Cancel <i class="far fa-trash-alt"></i>'),providers_booking_path(booking), method: "delete",  data: { confirm: "Are you sure you want to cancel #{booking.customer.name}'s request for '#{booking.tour.name}'?" } %>
           <% end %>
         </div>
         <% end %>
