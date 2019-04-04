@@ -1,23 +1,22 @@
-<br>
-<br>
-<br>
-<br>
-<br>
-<div class="container">
-  <% current_user.tours.each do |tour| %>
+<br />
+<div class="container mt-5">
+  <div class="wrapper mt-5 col-md-9 offset-md-2">
+    <% current_user.tours.each do |tour| %>
     <% if tour.bookings.any? %>
-      <h1> <%= tour.name %> </h1>
+      <h2 class="tour_name"> <%= tour.name %> </h2>
       <% tour.bookings.each do |booking| %>
-        <h2> by <%= booking.customer.name %> </h2>
-        <% if booking.confirmed == true %>
-          <br>
-          <h3> Confirmed </h3>
-        <% else %>
-          <br>
-          <h3> Unconfirmed </h3>
-        <% end %>
+      <div class="notification">
+        <h2><%= booking.customer.name %> </h2>
+          <%= booking.id %>
+          <% if booking.confirmed == true %>
+            <h3> Confirmed </h3>
+          <% else %>
+            <h3> Unconfirmed </h3>
+          <% end %>
         <%= link_to "confirm", providers_booking_path(booking), method: :patch %>
+      </div>
       <% end %>
     <% end %>
   <% end %>
+  </div>
 </div>

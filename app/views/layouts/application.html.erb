@@ -10,36 +10,8 @@
     <%= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
   </head>
   <body>
-    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
-      <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-        <%= link_to raw('<i class="fab fa-ravelry"></i>'), tours_path, class: "logo"%>
-        <ul class="navbar-nav mr-auto mt-2 mt-lg-0 pl-3">
-          <li><%= link_to "Log in", new_user_session_path %></li>
-          <li><%= link_to "Log out", destroy_user_session_path, method: :delete %><li>
-        </ul>
-        <form class="form-inline my-2 my-lg-0">
-          <% if current_user %>
-            <% var = current_user %>
-            <% if var.tours.any? %>
-              <div class="dropdown">
-                <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Manage tours
-                </button>
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                  <a class="dropdown-item" href="#">Your tours</a>
-                  <a class="dropdown-item" href="#">Booking requests</a>
-                </div>
-              </div>
-            <% end %>
-          <% end %>
-          <input id="nav-search" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-          <% if policy(Tour).create? %>
-            <%= link_to "Add Tour", new_tour_path, class: "btn btn-info ml-2" %>
-          <% end %>
-        </form>
-      </div>
-      <%= render 'shared/flashes' %>
-    </nav>
+    <%= render 'shared/navbar'%>
+    <%= render 'shared/flashes' %>
     <%= yield %>
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>

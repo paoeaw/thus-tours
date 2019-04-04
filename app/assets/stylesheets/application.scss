@@ -13,13 +13,15 @@
 @import "pages/index";
 @import "pages/show";
 @import "pages/bookings";
+@import "pages/providers_bookings";
 
 .logo {
   color: white;
-  font-size: 32px,
+  font-size: 28px,
 }
 
 .logo:hover {
+  text-decoration: none;
   color: #FFC65A;
 }
 
@@ -35,4 +37,7 @@
 
 #nav-search {
   margin-left: 16px;
+}
+.dropdown-menu .dropdown-item {
+  color: #BFBFBF;
 }
