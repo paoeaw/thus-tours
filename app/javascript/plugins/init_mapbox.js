@@ -26,10 +26,9 @@ const initMapbox = () => {
         .addTo(map);
     });
     fitMapToMarkers(map, markers);
-    map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken }));
     map.addControl(new mapboxgl.GeolocateControl({
       fitBoundsOptions: {
-          maxZoom: 10
+        maxZoom: 10
       },
       positionOptions: {
         enableHighAccuracy: true
@@ -37,6 +36,7 @@ const initMapbox = () => {
       showUserLocation: true,
       trackUserLocation: true
     }));
+    map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken }));
     map.geolocate
   }
 };
