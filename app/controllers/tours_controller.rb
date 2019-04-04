@@ -4,7 +4,7 @@ class ToursController < ApplicationController
   def index
     if params[:query].present?
       tours = policy_scope(Tour).order(created_at: :desc).where.not(latitude: nil, longitude: nil)
-      @tours = tours.where("name ILIKE ?", "%#{params[:query]}%")
+      @tours = tours.search_for_tour(params[:query])
     else
       @tours = policy_scope(Tour).order(created_at: :desc).where.not(latitude: nil, longitude: nil)
     end

@@ -19,9 +19,9 @@ class Tour < ApplicationRecord
   after_validation :geocode, if: :will_save_change_to_location?
 
   include PgSearch
-  pg_search_scope :search_by_title_and_syllabus,
-    against: [ :name, :location ],
+  pg_search_scope :search_for_tour,
+    against: [ :name, :location, :details ],
     using: {
-      tsearch: { prefix: true } # <-- now `superman batm` will return something!
+      tsearch: { prefix: true }
     }
 end
