@@ -37,7 +37,7 @@
     <%= f.input :photo_cache, as: :hidden %>
   </div>
   <%= f.submit class: 'btn btn-info' %>
-  <%= f.button :button, 'Cancel', type: :reset, class: 'btn btn-outline-info' %>
+  <%= link_to 'Cancel', providers_tours_path, class: 'btn btn-outline-info' %>
 
 <% end %>
 <br>
