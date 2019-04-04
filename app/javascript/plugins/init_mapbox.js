@@ -27,7 +27,27 @@ const initMapbox = () => {
     });
     fitMapToMarkers(map, markers);
     map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken }));
+    map.addControl(new mapboxgl.GeolocateControl({
+      fitBoundsOptions: {
+          maxZoom: 10
+      },
+      positionOptions: {
+        enableHighAccuracy: true
+      },
+      showUserLocation: true,
+      trackUserLocation: true
+    }));
+    map.geolocate
   }
 };
 
 export { initMapbox };
+
+
+// const clickGeolocator = () => {
+//   if (document.querySelector(".mapboxgl-ctrl-geolocate")) {
+//     document.querySelector(".mapboxgl-ctrl-geolocate").click();
+//   }
+// }
+
+// export { clickGeolocator };
