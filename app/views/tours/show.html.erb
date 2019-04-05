@@ -33,12 +33,12 @@
       </div>
       <h5 class="mt-2"><%= @tour.provider.name %>'s other tours</h5>
       <div class="provider-tours d-flex justify-content-between mt-2">
-        <% @tour.provider.tours.last(4).each do |tour| %>
+        <% @tour.provider.tours.first(3).each do |tour| %>
           <% if Tour.find(params[:id]) != tour %>
             <%= link_to tour_path(tour), class: "other-tour", :action => 'go' do %>
               <div class="other-tour">
-                <h6><%= tour.name %></h6>
-                <%= cl_image_tag(tour.photo, width: 170, height: 120) %>
+                <%= cl_image_tag(tour.photo, width: 220, height: 150) %>
+                <h6 class="mt-2"><%= tour.name %></h6>
               </div>
             <% end %>
           <% end %>
