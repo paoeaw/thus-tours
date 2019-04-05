@@ -12,7 +12,7 @@
   <div class="tab-content" id="pills-tabContent">
     <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
         <% if current_user.bookings.empty? %>
-        <p>You don't have any upcoming tours. <%= link_to "Start exploring!", tours_path(anchor: "tours"), class: 'btn btn-info' %></p>
+          <p>You don't have any upcoming tours. <%= link_to "Start exploring!", tours_path(anchor: "tours"), class: 'btn btn-info' %></p>
         <% else %>
           <ul class='list-group booking_list unconfirmed-bookings'>
             <% current_user.bookings.where(confirmed: nil).each_with_index do |booking, index| %>
@@ -30,7 +30,7 @@
                 <p class='ml-3'><%= booking.tour.details%></p>
               </div>
             </li>
-            <% end %>
+        <% end %>
           </ul>
     </div>
 
