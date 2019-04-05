@@ -13,5 +13,10 @@ class Providers::ToursController < ApplicationController
   end
 
   def destroy
+    @tour = Tour.find(params[:id])
+    authorize @tour
+    @tour.destroy
+
+    redirect_to providers_tours_path
   end
 end
