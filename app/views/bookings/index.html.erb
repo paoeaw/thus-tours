@@ -27,7 +27,13 @@
               </div>
               <div class="content_booking d-flex mt-3">
                 <%= cl_image_tag booking.tour.photo %>
-                <p class='ml-3'><%= booking.tour.details%></p>
+                <div class="tour-content-provider">
+                  <p class='ml-3'><%= booking.tour.details%></p>
+                  <div class="provider-name ml-3">
+                    <h6>tour provider:</h6>
+                    <p><%= cl_image_tag '237-Alvin-avatar-01' %> <%= booking.tour.provider.name %></p>
+                  </div>
+                </div>
               </div>
             </li>
             <% end %>
@@ -51,7 +57,13 @@
           </div>
           <div class="content_confirmed d-flex mt-3">
             <%= cl_image_tag booking.tour.photo%>
-            <p class='ml-3'><%= booking.tour.details%></p>
+            <div class="tour-content-provider">
+              <p class='ml-3'><%= booking.tour.details%></p>
+              <div class="provider-name ml-3">
+                <h6>tour provider:</h6>
+                <p><%= cl_image_tag '237-Alvin-avatar-01' %> <%= booking.tour.provider.name %></p>
+              </div>
+            </div>
           </div>
         </li>
         <% end %>
