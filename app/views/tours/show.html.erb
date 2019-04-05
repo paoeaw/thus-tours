@@ -32,11 +32,11 @@
         <h6 class="pl-2"><%= @tour.provider.name %></h6>
       </div>
       <h5 class="mt-2"><%= @tour.provider.name %>'s other tours</h5>
-      <div class="provider-tours d-flex justify-content-between mt-2">
+      <div class="provider-tours d-flex mt-2">
         <% @tour.provider.tours.first(3).each do |tour| %>
           <% if Tour.find(params[:id]) != tour %>
             <%= link_to tour_path(tour), class: "other-tour", :action => 'go' do %>
-              <div class="other-tour">
+              <div class="other-tour mr-3">
                 <%= cl_image_tag(tour.photo, width: 220, height: 150) %>
                 <h6 class="mt-2"><%= tour.name %></h6>
               </div>
