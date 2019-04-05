@@ -31,7 +31,11 @@
                   <p class='ml-3'><%= booking.tour.details%></p>
                   <div class="provider-name ml-3">
                     <h6>tour provider:</h6>
-                    <p><%= cl_image_tag booking.tour.customer.photo %> <%= booking.tour.provider.name %></p>
+                    <% if booking.tour.provider.photo.file.nil? %>
+                      <p><%= cl_image_tag booking.customer.photo %> <%= booking.tour.provider.name %></p>
+                    <% else %>
+                      <p><%= cl_image_tag booking.tour.provider.photo %> <%= booking.tour.provider.name %></p>
+                    <% end %>
                   </div>
                 </div>
               </div>
