@@ -31,6 +31,7 @@
   height: 500px;
   background-size: cover;
   padding: 50px;
+  background-position: center;
 }
 
 .tour-description {
@@ -59,7 +60,6 @@
 }
 .other-tour {
   color: black;
-  width: 170px;
   img {
     object-fit: cover;
   }

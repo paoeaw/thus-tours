@@ -12,7 +12,7 @@
   <div class="tab-content" id="pills-tabContent">
     <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
         <% if current_user.bookings.empty? %>
-        <p>You don't have any upcoming tours. <%= link_to "Start exploring!", tours_path(anchor: "tours"), class: 'btn btn-info' %></p>
+          <p>You don't have any upcoming tours. <%= link_to "Start exploring!", tours_path(anchor: "tours"), class: 'btn btn-info' %></p>
         <% else %>
           <ul class='list-group booking_list unconfirmed-bookings'>
             <% current_user.bookings.where(confirmed: nil).each_with_index do |booking, index| %>
@@ -27,10 +27,16 @@
               </div>
               <div class="content_booking d-flex mt-3">
                 <%= cl_image_tag booking.tour.photo %>
-                <p class='ml-3'><%= booking.tour.details%></p>
+                <div class="tour-content-provider">
+                  <p class='ml-3'><%= booking.tour.details%></p>
+                  <div class="provider-name ml-3">
+                    <h6>tour provider:</h6>
+                    <p><%= cl_image_tag '237-Alvin-avatar-01' %> <%= booking.tour.provider.name %></p>
+                  </div>
+                </div>
               </div>
             </li>
-            <% end %>
+        <% end %>
           </ul>
     </div>
 
@@ -51,7 +57,13 @@
           </div>
           <div class="content_confirmed d-flex mt-3">
             <%= cl_image_tag booking.tour.photo%>
-            <p class='ml-3'><%= booking.tour.details%></p>
+            <div class="tour-content-provider">
+              <p class='ml-3'><%= booking.tour.details%></p>
+              <div class="provider-name ml-3">
+                <h6>tour provider:</h6>
+                <p><%= cl_image_tag '237-Alvin-avatar-01' %> <%= booking.tour.provider.name %></p>
+              </div>
+            </div>
           </div>
         </li>
         <% end %>
