@@ -7,7 +7,6 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <div class="mr-4">
-      <% #raise %>
       <%= form_for Tour.new, url: tours_path(anchor: 'tours'), method: :get do %>
         <%= text_field_tag :query,
           params[:query],
@@ -26,9 +25,27 @@
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   Host manager
                 </button>
+                <% total_requests = nil %>
+                <% if Booking.has_unconfirmed_requests?(current_user) %>
+                  <% total_requests = 0 %>
+                  <% current_user.tours.each do |tour| %>
+                    <% tour.bookings.each do |booking| %>
+                      <% if booking.confirmed.nil? %>
+                        <% total_requests += 1 %>
+                      <% end %>
+                    <% end %>
+                  <% end %>
+                <% end %>
+                <% unless total_requests.nil? %>
+                  <i class="fas fa-bell"></i>
+                <% end %>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                   <%= link_to "Tours you're hosting", providers_tours_path, class: "dropdown-item" %>
-                  <%= link_to "Booking requests", providers_bookings_path, class: "dropdown-item" %>
+                  <% unless total_requests.nil? %>
+                    <%= link_to raw("Booking requests <span id='num-requests'>#{total_requests}</span>"), providers_bookings_path, class: "dropdown-item" %>
+                  <% else %>
+                    <%= link_to raw("Booking requests"), providers_bookings_path, class: "dropdown-item" %>
+                  <% end %>
                 </div>
               </div>
             <% end %>

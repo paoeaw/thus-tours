@@ -10,3 +10,21 @@
 .navbar-lewagon .navbar-brand img {
   width: 40px;
 }
+
+.dropdown {
+  position: relative;
+}
+
+#num-requests {
+  background-color: #ffc65a;
+  color: white;
+  border-radius: 5px;
+  padding: 0 5px;
+}
+
+.fa-bell {
+  color: #ffc65a;
+  position: absolute;
+  right: -7px;
+  top: -4px;
+}
