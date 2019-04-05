@@ -42,3 +42,32 @@
     font-weight: 300;
   }
 }
+
+.provider {
+  background-color: white;
+  h4, h6, h5 {
+    font-family: 'Heebo', sans-serif;
+    letter-spacing: 0.5px;
+  }
+  h6 {
+    font-weight: 400;
+  }
+  .provider-info {
+  img {
+    border-radius: 50%;
+  }
+}
+.other-tour {
+  color: black;
+  width: 170px;
+  img {
+    object-fit: cover;
+  }
+  &:hover {
+    text-decoration: none;
+    color: #FFB833;
+  }
+}
+}
+
+

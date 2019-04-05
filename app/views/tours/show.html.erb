@@ -25,9 +25,29 @@
         <%= cl_image_tag @tour.photo %>
       <% end %>
     </div>
+    <div class="provider mt-4 rounded p-4">
+      <h4 class="mt-1">Your tour provider</h4>
+      <div class="provider-info d-flex align-items-center border-bottom pb-3">
+        <%= cl_image_tag(@tour.provider.photo, width: 50, height: 50) %>
+        <h6 class="pl-2"><%= @tour.provider.name %></h6>
+      </div>
+      <h5 class="mt-2"><%= @tour.provider.name %>'s other tours</h5>
+      <div class="provider-tours d-flex justify-content-between mt-2">
+        <% @tour.provider.tours.last(4).each do |tour| %>
+          <% if Tour.find(params[:id]) != tour %>
+            <%= link_to tour_path(tour), class: "other-tour", :action => 'go' do %>
+              <div class="other-tour">
+                <h6><%= tour.name %></h6>
+                <%= cl_image_tag(tour.photo, width: 170, height: 120) %>
+              </div>
+            <% end %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
   </div>
 
-  <div class="request d-flex align-item-center justify-content-around flex-column ml-5">
+  <div class="request d-flex align-items-center justify-content-around flex-column ml-5">
     <div class="form p-5">
       <%= simple_form_for [@tour, @booking] do |f| %>
       <div class="form-group">
