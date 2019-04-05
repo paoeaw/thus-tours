@@ -26,13 +26,13 @@
                 <strong>Date: </strong><%= booking.nice_date %> | <strong>People:</strong> <%= booking.headcount %> | <strong>Price: ￥</strong> <%= booking.tour.cost %> | <strong>Total: ￥</strong> <%= booking.tour.cost * booking.headcount %>&nbsp;&nbsp;&nbsp;<%= link_to raw('<i class="fas fa-trash-alt"></i>'),  booking_path(booking), method: "delete", class: "text-dark", data: { confirm: "Are you sure you want to cancel your request for '#{booking.tour.name}'?" }%> <br>
               </div>
               <div class="content_booking d-flex mt-3">
-                <%= cl_image_tag booking.customer.photo %>
+                <%= cl_image_tag booking.tour.photo %>
                 <div class="tour-content-provider">
                   <p class='ml-3'><%= booking.tour.details%></p>
                   <div class="provider-name ml-3">
                     <h6>tour provider:</h6>
                     <% if booking.tour.provider.photo.file.nil? %>
-                      <p><%= cl_image_tag booking.customer.photo %> <%= booking.tour.provider.name %></p>
+                      <p><%= cl_image_tag booking.provider.photo %> <%= booking.tour.provider.name %></p>
                     <% else %>
                       <p><%= cl_image_tag booking.tour.provider.photo %> <%= booking.tour.provider.name %></p>
                     <% end %>
