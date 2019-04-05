@@ -24,4 +24,14 @@ class Tour < ApplicationRecord
     using: {
       tsearch: { prefix: true }
     }
+
+  def unconfirmed_count
+    count = 0
+    self.bookings.each do |booking|
+      if booking.confirmed.nil?
+        count += 1
+      end
+    end
+    count
+  end
 end
