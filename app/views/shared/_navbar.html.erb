@@ -1,20 +1,18 @@
 <div class="navbar fixed-top navbar-expand-sm navbar-dark bg-dark navbar-lewagon">
-  <%= link_to raw('<i class="fab fa-ravelry"></i> Thu\'s Tour'), tours_path, class: "logo" %>
+  <ul class="navbar-nav mr-auto">
+    <li class="nav-item">
+    <%= link_to raw('<i class="fas fa-globe-americas"></i> Thu\'s Tours'), tours_path, class: "logo" %>
+    </li>
+    <li class="nav-item">
+      <%= link_to "All tours", tours_path(anchor: "tours"), class: "btn btn-outline-secondary" %>
+    </li>
+  </ul>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <div class="mr-4">
-      <%= form_for Tour.new, url: tours_path(anchor: 'tours'), method: :get do %>
-        <%= text_field_tag :query,
-          params[:query],
-          class: "form-control",
-          placeholder: "Start exploring"
-        %>
-      <% end %>
-    </div>
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
         <li class="nav-item mr-4">
@@ -40,6 +38,7 @@
                   <i class="fas fa-bell"></i>
                 <% end %>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <%= link_to "Host a new tour", new_tour_path, class: "dropdown-item" %>
                   <%= link_to "Tours you're hosting", providers_tours_path, class: "dropdown-item" %>
                   <% unless total_requests.nil? %>
                     <%= link_to raw("Booking requests <span id='num-requests'>#{total_requests}</span>"), providers_bookings_path, class: "dropdown-item" %>
@@ -50,9 +49,6 @@
               </div>
             <% end %>
           <% end %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Home", tours_path, class: "btn btn-outline-secondary" %>
         </li>
 
         <li class="nav-item dropdown">
@@ -72,5 +68,17 @@
         </li>
       <% end %>
     </ul>
+    <div class="mr-4">
+      <%= form_for Tour.new, url: tours_path(anchor: 'tours'), method: :get do %>
+        <div class="d-flex">
+          <%= text_field_tag :query,
+            params[:query],
+            class: "form-control mr-2 ml-4",
+            placeholder: "Start exploring"
+          %>
+          <%= button_tag "Go!", class: "btn btn-info" %>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>
