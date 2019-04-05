@@ -54,3 +54,37 @@ h2 {
   font-weight: 700;
   color: #15AABF;
 }
+
+h4 {
+  font-family: 'Heebo', sans-serif;
+  letter-spacing: 0.5px;
+  font-weight: 400;
+}
+
+.unconfirm {
+  color: #343A40;
+  padding: 20px;
+  margin-top: 40px;
+  text-align: center;
+  border: solid 2px #FFC65A;
+  border-radius: 5px;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.tour-unconfirm a {
+  text-decoration: none;
+  font-family: 'Heebo', sans-serif;
+  letter-spacing: 0.5px;
+  font-weight: bold;
+  color: #fd7e14;
+  font-size: 20px;
+}
+
+.tour-unconfirm a:hover {
+  color: #5A6268;
+}
+
+.unconfirmed-list {
+  list-style: none;
+}
