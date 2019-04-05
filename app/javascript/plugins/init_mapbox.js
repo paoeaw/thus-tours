@@ -38,7 +38,6 @@ const initMapbox = () => {
       showUserLocation: true,
       trackUserLocation: true
     }));
-    map.addControl(new MapboxGeocoder({ accessToken: mapboxgl.accessToken }));
     map.geolocate
   }
 };
